@@ -6,7 +6,9 @@ This work is licensed under a Creative Commons Attribution 4.0 International Lic
 pragma solidity 0.8.19;
 
 contract Aluguel {
-    
+
+    /* Endereço do contrato na rede Sepolia: 0x22933FCfaF7ebA374Cc8b72560ed8D2D343D4D6c */
+
     struct DadosPagamento {
         uint quandoFoiPago;
         uint valorPago;
