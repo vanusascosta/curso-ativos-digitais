@@ -4,6 +4,8 @@ pragma solidity 0.8.19;
 import "./owner.sol";
 import "./titulo.sol";
 
+/** Contrato Nota Comercial: 0xb1C2C4cA7Bd8f98AF9011d6714e5621578e0963f */
+
 /**
  * @title NotaComercial
  * @dev Operacoes de uma nota comercial
