@@ -5,7 +5,7 @@ This work is licensed under a Creative Commons Attribution 4.0 International Lic
 */
 pragma solidity 0.8.19;
 
-// endereço do contrato: 0x10a5Ac43a921d853ef32fb236755662Ab5d2950b 
+// endereço do contrato: 0x067745684aC261335121d36bDbe555E4F649Fe83
 
 /// @author Vanusa Costa
 /// @title Um exemplo de Faucet
@@ -16,9 +16,9 @@ contract Faucet {
 
     event AconteceuUmaTentativa(address quemTentou, uint8 quantidadeTentativas);
 
-    // @notice Fornece a quem chamar a transacao um valor
-    // @dev incrementa um no acumulador de tentativas e atribuir o valor da tentativa a um endereco ethereum.
-    // @return valor atual de tentativas
+    // @notice Fornece a quem chamar a transacao uma tentativa
+    // @dev incrementa um no acumulador de tentativas e atribui o numero da tentativa a um endereco ethereum.
+    // @return numero de tentativas
     function executarTentativa() public returns (uint256) {
         require(tentativas[msg.sender]<=3, "Sinto muito. Voce so pode realizar 3 tentativas");
         require(numeroTentativa < 4, "Sinto muito. Voce perdeu sua chance");
