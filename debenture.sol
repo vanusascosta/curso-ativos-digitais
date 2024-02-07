@@ -4,6 +4,8 @@ pragma solidity 0.8.19;
 import "./owner.sol";
 import "./titulo.sol";
 
+/** Contrato Debenture: 0x4BaD1239Eccc0a26f32Ec6F44163688443dF2559 */
+
 /**
  * @title Debenture
  * @dev Operacoes de uma debenture
