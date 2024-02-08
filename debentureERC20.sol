@@ -112,6 +112,12 @@ contract TicketERC20 is IERC20, Ownable {
     string private mySymbol;
     uint256 private myTotalSupply;
     uint256 public decimals;
+    string _emissor;
+    uint256 immutable _dataEmissao;
+    uint8 immutable _decimais;
+    uint256 _prazoPagamento;
+    uint16 _fracoes;
+    string public rating;
 
     mapping (address=>uint256) balances;
     mapping (address=>mapping (address=>uint256)) ownerAllowances;
@@ -135,8 +141,14 @@ contract TicketERC20 is IERC20, Ownable {
     }
 
     constructor() {
-        myName = "Token Nuclea Series 01 2024";
-        mySymbol = "NC012024";
+        _emissor = emissor_;
+        _dataEmissao = block.timestamp;
+        _decimais = 2;
+        _prazoPagamento = _dataEmissao + 60 ;
+        _fracoes = 1000;
+        rating "BBBB-";
+        myName = "Token Debenture Vanusa";
+        mySymbol = "VAN2024";
         decimals = 2;
         mint(msg.sender, (1000000000 * (10 ** decimals)));
     }
@@ -151,6 +163,44 @@ contract TicketERC20 is IERC20, Ownable {
 
     function totalSupply() public override view returns(uint256) {
         return myTotalSupply;
+    }
+
+   /**
+     * @dev Retorna o nome do Emissor.
+     */
+    function nomeEmissor() external view returns (string memory) {
+        return _emissor;
+    }
+
+    /**
+     * @dev Retorna a data da emissao.
+     */
+    function dataEmissao() external view returns (uint256) {
+        return _dataEmissao;
+    }
+
+    /**
+    * @dev muda o rating
+    * @notice dependendo da situacao economica a empresa avaliadora pode mudar o rating
+    * @param novoRating novo rating da debenture
+    */
+    function mudaRating(string memory novoRating) external onlyOwner returns (bool) {
+        rating = novoRating;
+        return true;
+    }
+
+    function alteraFracoes(uint16 fracoes_) external onlyOwner returns (bool) {
+        require(fracoes_ >=100, "numero de fracoes baixo");
+        _fracoes = fracoes_;
+        return true;
+    }
+
+    /**
+    * @dev retorna o valor da variavel fracoes
+    * @notice informa o numero de fracoes da debenture
+    */
+    function fracoes() external view returns (uint16) {
+        return _fracoes;
     }
 
     function balanceOf(address tokenOwner) public override view returns(uint256) {
