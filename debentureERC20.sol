@@ -113,7 +113,6 @@ contract TicketERC20 is IERC20, Ownable {
     uint256 public decimals;
     string _emissor;
     uint256 immutable _dataEmissao;
-    uint8 immutable _decimais;
     uint256 _prazoPagamento;
     uint16 _fracoes;
     string public rating;
@@ -147,7 +146,6 @@ contract TicketERC20 is IERC20, Ownable {
         mint(msg.sender, (1000000000 * (10 ** decimals)));
         _emissor = "Emissor Deb";
         _dataEmissao = block.timestamp;
-        _decimais = 2;
         _prazoPagamento = _dataEmissao + 60 days ;
         _fracoes = 1000;
         rating = "BBB+";
