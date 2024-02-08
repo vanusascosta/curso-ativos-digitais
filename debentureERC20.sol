@@ -1,4 +1,3 @@
-
 /*
 SPDX-License-Identifier: CC-BY-4.0
 (c) Desenvolvido por Vanusa Costa
@@ -141,16 +140,17 @@ contract TicketERC20 is IERC20, Ownable {
     }
 
     constructor() {
-        _emissor = emissor_;
-        _dataEmissao = block.timestamp;
-        _decimais = 2;
-        _prazoPagamento = _dataEmissao + 60 ;
-        _fracoes = 1000;
-        rating "BBBB-";
+      
         myName = "Token Debenture Vanusa";
         mySymbol = "VAN2024";
         decimals = 2;
         mint(msg.sender, (1000000000 * (10 ** decimals)));
+        _emissor = "Emissor Deb";
+        _dataEmissao = block.timestamp;
+        _decimais = 2;
+        _prazoPagamento = _dataEmissao + 60 days ;
+        _fracoes = 1000;
+        rating = "BBB+";
     }
 
     function name() public view returns(string memory) {
