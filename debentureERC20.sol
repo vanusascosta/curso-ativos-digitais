@@ -4,6 +4,7 @@ SPDX-License-Identifier: CC-BY-4.0
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 */
 
+/** Contrato: 0x8aABfC23C0FA8EC0bACf8bb2Fb0b0133a03bd66c */
 pragma solidity 0.8.19;
 
 /**
