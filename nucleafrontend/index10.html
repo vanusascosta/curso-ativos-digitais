@@ -176,8 +176,11 @@
 
         const tokenTotalSupplyObj = await contract.totalSupply();
         const tokenTotalSupply = document.getElementById("tokenTotalSupply");
-        const tokenRating = await contract.rating();
         tokenTotalSupply.innerHTML = tokenTotalSupplyObj;
+
+        const tokenRatingObj = await contract.rating();
+        const tokenRating = document.getElementById("tokenRating");
+        tokenRating.innerHTML = tokenRatingObj;
 
         //eventos
         const filtroEvento = contract.filters.Transfer;
