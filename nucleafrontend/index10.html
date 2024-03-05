@@ -28,6 +28,7 @@
             <span id="tokenSimbolo">Buscando informação...</span>
           </h3>
           <h3>Total circulante: <span id="tokenTotalSupply">Buscando informação...</span></h3>
+          <h3>Rating: <span id="tokenRating">Buscando informação...</span></h3>
         </section>
         <hr />
         <section>
@@ -175,6 +176,7 @@
 
         const tokenTotalSupplyObj = await contract.totalSupply();
         const tokenTotalSupply = document.getElementById("tokenTotalSupply");
+        const tokenRating = await contract.rating();
         tokenTotalSupply.innerHTML = tokenTotalSupplyObj;
 
         //eventos
