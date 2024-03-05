@@ -102,7 +102,7 @@
                 style="width: 500px"
               />
               <br /><br />
-              <input id="btnRating" type="button" value="Alterar Rating" onclick="alterarRating()" />
+              <input id="btnRating" type="button" value="Alterar Rating" onclick="mudaRating()" />
             </form>
           </div>
         </section>
@@ -238,7 +238,7 @@
         }
       }
 
-      async function AlterarRating() {
+      async function mudaRating() {
         event.preventDefault();
         const btn = document.getElementById("btnRating");
         btn.value = "Processando...";
