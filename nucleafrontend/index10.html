@@ -205,6 +205,12 @@
         tokenTotalSupply.innerHTML = tokenTotalSupplyObj;
       }
 
+     async function rating() {
+        const tokenRatingObj = await contract.rating();
+        const tokenRating = document.getElementById("tokenRating");
+        tokenRating.innerHTML = tokenRatingObj;
+      }
+
       async function consultar() {
         event.preventDefault();
         const form = document.getElementById("formSaldo");
