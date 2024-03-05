@@ -85,6 +85,28 @@
         </section>
         <hr />
         <section>
+          <h2>Alterar Rating</h2>
+          <div>
+            <form action="" name="formRating" id="formRating" method="get">
+              <label for="formTo">Rating:</label>
+              <br /><br />
+              <input 
+                type="text"
+                placeholder="AAA"
+                required
+                name="formRT"
+                id="formRT"
+                size="100"
+                maxlength="5"
+                style="width: 500px"
+              />
+              <br /><br />
+              <input id="btnRating" type="button" value="Alterar Rating" onclick="alterarRating()" />
+            </form>
+          </div>
+        </section>
+        <hr />
+        <section>
           <h2>Rede e Infra</h2>
           <h3>Conta selectionada: <span id="networkAccount">&nbsp;</span></h3>
           <h3>Rede selecionada: <span id="networkNetworkID">&nbsp;</span></h3>
@@ -205,20 +227,20 @@
         }
       }
 
-      async function rating() {
+      async function AlterarRating() {
         event.preventDefault();
         const btn = document.getElementById("btnRating");
         btn.value = "Processando...";
         alert("Aguarde e confirme a transação no Metamask");
-        const form = document.getElementById("formMint");
-        const tx = await contract.rating(form.formTo.value, form.formAmount.value);
+        const form = document.getElementById("formRating");
+        const tx = await contract.mudarating(form.formRT.value);
         console.log("tx enviada: ", tx);
         alert("Transação enviada a Blockchain. Aguarde.\nID: " + tx.hash);
         const txReceipt = await tx.wait();
         console.log("txReceipt: ", txReceipt);
         if (txReceipt.status === 1) {
           await atualizaTotalSupply();
-          alert("Parabéns! Rating gerados.");
+          alert("Parabéns! Rating alterado.");
           btn.value = "Rating";
           form.reset();
         }
