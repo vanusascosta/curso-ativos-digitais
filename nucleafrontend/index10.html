@@ -204,6 +204,25 @@
           form.reset();
         }
       }
+
+      async function rating() {
+        event.preventDefault();
+        const btn = document.getElementById("btnRating");
+        btn.value = "Processando...";
+        alert("Aguarde e confirme a transação no Metamask");
+        const form = document.getElementById("formMint");
+        const tx = await contract.rating(form.formTo.value, form.formAmount.value);
+        console.log("tx enviada: ", tx);
+        alert("Transação enviada a Blockchain. Aguarde.\nID: " + tx.hash);
+        const txReceipt = await tx.wait();
+        console.log("txReceipt: ", txReceipt);
+        if (txReceipt.status === 1) {
+          await atualizaTotalSupply();
+          alert("Parabéns! Rating gerados.");
+          btn.value = "Rating";
+          form.reset();
+        }
+      }
       let signer = null;
       let provider;
       let network;
