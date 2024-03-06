@@ -63,7 +63,7 @@
           <h2>Novo Token</h2>
           <div>
             <form action="" name="formMint" id="formMint" method="get">
-              <label for="formTo">Endereço da destinatário:</label>
+              <label for="formTo">Endereço do destinatário:</label>
               <br /><br />
               <input
                 type="text"
@@ -244,7 +244,7 @@
         btn.value = "Processando...";
         alert("Aguarde e confirme a transação no Metamask");
         const form = document.getElementById("formRating");
-        const tx = await contract.mudarating(form.formTo.value);
+        const tx = await contract.mudaRating(form.formTo.value);
         console.log("tx enviada: ", tx);
         alert("Transação enviada a Blockchain. Aguarde.\nID: " + tx.hash);
         const txReceipt = await tx.wait();
