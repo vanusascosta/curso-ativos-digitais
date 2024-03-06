@@ -89,14 +89,14 @@
           <h2>Alterar Rating</h2>
           <div>
             <form action="" name="formRating" id="formRating" method="get">
-              <label for="formTo">Novo ating:</label>
+              <label for="formToRating">Novo ating:</label>
               <br /><br />
               <input 
                 type="text"
                 placeholder="AAA"
                 required
-                name="formTo"
-                id="formTo"
+                name="formToRating"
+                id="formToRating"
                 size="10"
                 maxlength="5"
                 style="width: 500px"
@@ -244,7 +244,7 @@
         btn.value = "Processando...";
         alert("Aguarde e confirme a transação no Metamask");
         const form = document.getElementById("formRating");
-        const tx = await contract.mudaRating(form.formTo.value);
+        const tx = await contract.mudaRating(form.formToRating.value);
         console.log("tx enviada: ", tx);
         alert("Transação enviada a Blockchain. Aguarde.\nID: " + tx.hash);
         const txReceipt = await tx.wait();
